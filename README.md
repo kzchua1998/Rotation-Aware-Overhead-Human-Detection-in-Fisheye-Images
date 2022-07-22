@@ -43,7 +43,7 @@ https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-
 ## Evaluation and Visualization
 Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric.
 
-0. Modify line 41-42 to evaluate your trained weights. Default weight used `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt` is trained on COCO, CEPDOF, HABBOF, MW-R and WEPDTOF.
+0. Modify line 41-42 to evaluate your trained weights. Default weight used is `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt`.
 ```
 rapid = Detector(model_name='rapid',
                      weights_path='./weights/rapid_pL1_dark53_COCO608_Jun18_4000.ckpt')
