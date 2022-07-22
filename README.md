@@ -34,24 +34,22 @@ It should be noted that MW-R only provides [raw videos](https://www.youtube.com/
 For example, the first frame of the `MW-18Mar-3` video will be `Mar3_000001.jpg`, and the 10th frame of the `MW-18Mar-12` video will be `Mar12_000010.jpg`.
 
 ## Demo
+The video was taken approximately 17 feet from the ground near Kolej 10, Universiti Teknologi Malaysia.
 
 https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
 
-0. Clone the repository
-1. Download the [pre-trained network weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt), which is trained on COCO, MW-R and HABBOF, and place it under the RAPiD/weights folder.
 2. Directly run `python example.py`. Alternatively, `demo.ipynb` gives an example using jupyter notebook.
 
 ## Evaluation and Visualization
-Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric.
+Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric. Skip to step 2 for visualization only.
 
-0. Modify line 41-42 to evaluate your trained weights. Default weight used `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt` is trained on COCO, CEPDOF, HABBOF, MW-R and WEPDTOF.
+0. Modify line 41-42 to evaluate your trained weights. Default weight used is `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt`.
 ```
 rapid = Detector(model_name='rapid',
                      weights_path='./weights/rapid_pL1_dark53_COCO608_Jun18_4000.ckpt')
 ```
 1. Run `python evaluate.py --metric AP`
-
-The same evaluation process holds for published fisheye datasets like CEPDOF. For example, `python evaluate.py --imgs_path path/to/cepdof/Lunch1 --gt_path path/to/cepdof/annotations/Lunch1.json --metric AP`
+2. Visualize the result by running `python demo.py` or using `demo.ipynb` provided.
 
 ## Training on COCO json data format
 0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth) by RAPiD authors which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 authors but in PyTorch format.
