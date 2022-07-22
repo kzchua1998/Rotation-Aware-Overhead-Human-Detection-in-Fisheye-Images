@@ -1,33 +1,16 @@
-# RAPiD
+# Transfer Learning of RAPiD Model on MW-R and WEBDTOF 
 This repository is the official PyTorch implementation of the following paper. Our code can reproduce the training and testing results reported in the paper.
 
 **RAPiD: Rotation-Aware People Detection in Overhead Fisheye Images** <br />
-[[arXiv paper](https://arxiv.org/abs/2005.11623)] [[Project page](http://vip.bu.edu/projects/vsns/cossy/fisheye/rapid/)]
-
-## Updates
-- [Oct 15, 2020]: Add instructions for training on COCO
-- [Oct 15, 2020]: Add instructions for evaulation
 
 ## Installation
 **Requirements**:
-The code should be able to work as long as you have the following packages:
+```bash
 - PyTorch >= 1.0. Installation instructions can be found at https://pytorch.org/get-started/locally/
 - opencv-python
 - [pycocotools](https://github.com/cocodataset/cocoapi) (for Windows users, please refer to [this repo](https://github.com/philferriere/cocoapi))
 - tqdm
 - tensorboard (optional, only for training)
-
-An exmpale of Installation with Linux, CUDA10.1, and Conda:
-```bash
-conda create --name RAPiD_env python=3.7
-conda activate RAPiD_env
-
-conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
-conda install -c conda-forge pycocotools
-conda install tqdm opencv
-
-# cd the_folder_to_install
-git clone https://github.com/duanzhiihao/RAPiD.git
 ```
 
 ## Performance and pre-trained network weights
@@ -77,7 +60,7 @@ TBD
 - [ ] Update README
 
 ## Citation
-RAPiD source code is available for non-commercial use. If you find our code and dataset useful or publish any work reporting results using this source code, please consider citing our paper
+RAPiD source code is available for non-commercial use.
 ```
 Z. Duan, M.O. Tezcan, H. Nakamura, P. Ishwar and J. Konrad, 
 “RAPiD: Rotation-Aware People Detection in Overhead Fisheye Images”, 
