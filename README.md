@@ -27,7 +27,9 @@ It should be noted that MW-R only provides [raw videos](https://www.youtube.com/
 
 - Rename the MW frames using the following file names: “Mar#_******.jpg”, where # is the video number as in the original MW dataset, and ****** is the frame number in that video but zero-padded to 6 digits. 
 
-e.g. the first frame of the “MW-18Mar-3” video will be “Mar3_000001.jpg”, and the 10th frame of the “MW-18Mar-12” video will be “Mar12_000010.jpg”.
+*Example: 
+
+the first frame of the “MW-18Mar-3” video will be “Mar3_000001.jpg”, and the 10th frame of the “MW-18Mar-12” video will be “Mar12_000010.jpg”.
 
 ## Demo
 https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
