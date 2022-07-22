@@ -19,9 +19,13 @@ It should be noted that MW-R only provides [raw videos](https://www.youtube.com/
 
 **Instructions**
 - Convert the MW Train Set videos into frames. 
+
 - “MW-18Mar-2” video should contains 297 frames, 788 frames for “MW-18Mar-3” video, and 451 frames each for other videos. 
+
 - In total, there should be 297 + 788 + 17*451 = 8752 frames.
+
 - Rename the MW frames using the following file names: “Mar#_******.jpg”, where # is the video number as in the original MW dataset, and ****** is the frame number in that video but zero-padded to 6 digits. 
+
 e.g. the first frame of the “MW-18Mar-3” video will be “Mar3_000001.jpg”, and the 10th frame of the “MW-18Mar-12” video will be “Mar12_000010.jpg”.
 
 ## Demo
