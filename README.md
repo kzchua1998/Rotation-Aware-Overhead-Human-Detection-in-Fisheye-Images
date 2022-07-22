@@ -15,7 +15,11 @@ The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF 
 - MW-R [[Download Here](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/)]
 - WEPDTOF [[Download Here](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)]
 
-It should be noted that MW-R only provides raw videos and their corresponding annotations in COCO json format. The raw videos are provided [here](https://www.youtube.com/playlist?list=PLKjRNrBNA-nzzv4KqqdeMHMtq26kue5ZR).
+It should be noted that MW-R only provides [raw videos](https://www.youtube.com/playlist?list=PLKjRNrBNA-nzzv4KqqdeMHMtq26kue5ZR) and their corresponding annotations in COCO json format. Therefore, further processing is necessary to convert the videos into frames and name them appropriately.
+
+**Instructions**
+- Convert the MW Train Set videos into frames. Please check that the “MW-18Mar-2” video contains 297 frames, the “MW-18Mar-3” video contains 788 frames, and each of the other videos contains 451 frames. In total, there should be 297 + 788 + 17*451 = 8752 frames.
+- Rename the MW frames using the following file names: “Mar#_******.jpg”, where # is the video number as in the original MW dataset, and ****** is the frame number in that video but zero-padded to 6 digits. For example, the first frame of the “MW-18Mar-3” video should be “Mar3_000001.jpg”, and the 10th frame of the “MW-18Mar-12” video should be “Mar12_000010.jpg”.
 
 ## Demo
 https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
