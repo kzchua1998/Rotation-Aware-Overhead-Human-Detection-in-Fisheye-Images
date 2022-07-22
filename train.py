@@ -55,7 +55,6 @@ if __name__ == '__main__':
     print('initialing dataloader...')
     if args.dataset == 'COCO':
         train_img_dir = r'D:\dataset\Terminal_ready\coco_json\images\train'
-        #assert 'COCO' in train_img_dir # issue #11
         train_json = r'D:\dataset\Terminal_ready\coco_json\annotations\train\train.json'
         val_img_dir = r'D:\dataset\Terminal_ready\coco_json\images\validation'
         val_json = r'D:\dataset\Terminal_ready\coco_json\annotations\validation\val.json'
