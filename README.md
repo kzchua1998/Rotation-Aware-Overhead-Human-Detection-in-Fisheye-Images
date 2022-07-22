@@ -15,6 +15,10 @@ The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF 
 - MW-R [[Download Here](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/)]
 - WEPDTOF [[Download Here](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)]
 
+<p align="center">
+<img src="https://vip.bu.edu/files/2021/07/wepdof_samples.png" width="500" height="500">
+</p>
+
 It should be noted that MW-R only provides [raw videos](https://www.youtube.com/playlist?list=PLKjRNrBNA-nzzv4KqqdeMHMtq26kue5ZR) and their corresponding annotations in COCO json format. Therefore, further processing is necessary to convert the videos into frames and name them appropriately.
 
 
