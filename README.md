@@ -25,10 +25,14 @@ https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-
 2. Directly run `python example.py`. Alternatively, `demo.ipynb` gives an example using jupyter notebook.
 
 ## Evaluation
-Here is a minimum example of evaluting RAPiD on a single image in terms of the AP metric.
+Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric.
 
-0. Clone repository. Download the [pre-trained network weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt), which is trained on COCO, MW-R and HABBOF, and place it under the /weights folder.
-1. `python evaluate.py --metric AP`
+0. Modify line 41-42 to evaluate your trained weights. Default weight used `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt` is trained on COCO, CEPDOF, HABBOF, MW-R and WEPDTOF.
+```
+rapid = Detector(model_name='rapid',
+                     weights_path='./weights/rapid_pL1_dark53_COCO608_Jun18_4000.ckpt')
+```
+1. Run `python evaluate.py --metric AP`
 
 The same evaluation process holds for published fisheye datasets like CEPDOF. For example, `python evaluate.py --imgs_path path/to/cepdof/Lunch1 --gt_path path/to/cepdof/annotations/Lunch1.json --metric AP`
 
@@ -44,7 +48,7 @@ if args.dataset == 'COCO':
     val_img_dir = 'path/to/img/val'
     val_json = 'path/to/json/val.json'
 ```
-4. `python train.py --model rapid_pL1 --dataset COCO --batch_size 2` should work. Try to set the largest possible batch size that can fit in the GPU memory.
+4. Run `python train.py --model rapid_pL1 --dataset COCO --batch_size 2`. Set the largest possible batch size that can fit in the GPU memory.
 
 ## Citation
 ```
