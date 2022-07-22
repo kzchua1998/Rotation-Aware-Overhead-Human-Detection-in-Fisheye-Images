@@ -50,7 +50,7 @@ rapid = Detector(model_name='rapid',
 ```
 1. Run `python evaluate.py --metric AP`
 
-The visualization process can be achieved by running `python visualize.py`
+The visualization process can be achieved by running `python demo.py` or using `demo.ipynb` provided.
 
 ## Training on COCO json data format
 0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth) by RAPiD authors which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 authors but in PyTorch format.
