@@ -38,8 +38,6 @@ The video was taken approximately 17 feet from the ground near Kolej 10, Univers
 
 https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
 
-2. Directly run `python example.py`. Alternatively, `demo.ipynb` gives an example using jupyter notebook.
-
 ## Evaluation and Visualization
 Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric. Skip to step 2 for visualization only.
 
@@ -50,6 +48,10 @@ rapid = Detector(model_name='rapid',
 ```
 1. Run `python evaluate.py --metric AP`
 2. Visualize the result by running `python demo.py` or using `demo.ipynb` provided.
+
+<p align="center">
+<img src="https://github.com/kzchua1998/Rotation-Aware-Overhead-Human-Detection-in-Fisheye-Images/blob/master/images/visualization.png?raw=true" width="500" height="500">
+</p>
 
 ## Training on COCO json data format
 0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth) by RAPiD authors which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 authors but in PyTorch format.
