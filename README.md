@@ -12,7 +12,7 @@
 
 ## Datasets
 The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF datasets for 4000 iterations.
-| **Dataset** | MW-R | WEPDTOF |
+| **Dataset** | **MW-R** | WEPDTOF |
 |:----------:|:----:|:------:|
 | **Download Link** | [Annotation only](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/) |  [Image and Annotation](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)  |
 
