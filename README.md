@@ -5,13 +5,12 @@ This repository is the official PyTorch implementation of the following paper. O
 
 ## Installation
 **Requirements**:
-```bash
 - PyTorch >= 1.0. Installation instructions can be found at https://pytorch.org/get-started/locally/
 - opencv-python
 - [pycocotools](https://github.com/cocodataset/cocoapi) (for Windows users, please refer to [this repo](https://github.com/philferriere/cocoapi))
 - tqdm
 - tensorboard (optional, only for training)
-```
+
 
 ## Performance and pre-trained network weights
 Below is the cross-validatation performance on three datasets: [Mirror Worlds](http://www2.icat.vt.edu/mirrorworlds/challenge/index.html)-[rotated bbox version](http://vip.bu.edu/projects/vsns/cossy/datasets/mw-r), [HABBOF](http://vip.bu.edu/projects/vsns/cossy/datasets/habbof/), and [CEPDOF](http://vip.bu.edu/projects/vsns/cossy/datasets/cepdof/). The metric being used is Average Precision at IoU=0.5 (AP0.5). The links in the table refer to the pre-trained network weights that can reproduce each number.
@@ -21,6 +20,7 @@ Below is the cross-validatation performance on three datasets: [Mirror Worlds](h
 |    1024    | [96.7](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_HBCP1024_Apr14_3000.ckpt) |  [98.1](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWCP1024_Apr14_3000.ckpt)  |  [85.8](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt)  |
 
 ## A minimum guide for testing on a single image
+https://github.com/kzchua1998/Rotation-Aware-Overhead-Human-Detection-in-Fisheye-Images/result_video.mp4
 0. Clone the repository
 1. Download the [pre-trained network weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt), which is trained on COCO, MW-R and HABBOF, and place it under the RAPiD/weights folder.
 2. Directly run `python example.py`. Alternatively, `demo.ipynb` gives an example using jupyter notebook.
@@ -52,12 +52,6 @@ if args.dataset == 'COCO':
 4. `python train.py --model rapid_pL1 --dataset COCO --batch_size 8` should work. Try to set the largest possible batch size that can fit in the GPU memory.
 
 Pre-trained checkpoint on COCO after 20k training iterations: [download](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/rapid_pL1_dark53_COCO608_Jan07_20000.ckpt). Note that this is different from the one we reported in the paper. We encourage you to further fine-tune it, either on COCO (ideally >100k iterations) or on fisheye images, to get better performance.
-
-## Fine-tuning on fisheye image datasets
-TBD
-
-## TODO
-- [ ] Update README
 
 ## Citation
 RAPiD source code is available for non-commercial use.
