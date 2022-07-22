@@ -14,8 +14,7 @@
 The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF datasets for 4000 iterations.
 | Dataset | MW-R | WEPDTOF |
 |:----------:|:----:|:------:|
-| Download Link | [Annotation only](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_HBCP608_Apr14_6000.ckpt) |  [Image and Annotation](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWCP608_Apr14_5500.ckpt)  |
-|    1024    | [Image and Annotation](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_HBCP1024_Apr14_3000.ckpt) |  [98.1](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWCP1024_Apr14_3000.ckpt)  |
+| Download Link | [Annotation only](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/) |  [Image and Annotation](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)  |
 
 It should be noted that 
 
