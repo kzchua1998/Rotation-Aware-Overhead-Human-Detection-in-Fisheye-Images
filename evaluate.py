@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     # initialize RAPiD
     rapid = Detector(model_name='rapid',
-                     weights_path='./weights/pL1_MWHB1024_Mar11_4000.ckpt')
+                     weights_path='./weights/rapid_pL1_dark53_COCO608_Jun18_4000.ckpt')
 
     # Run RAPiD on the image sequence
     conf_thres = 0.005 if args.metric == 'AP' else 0.3

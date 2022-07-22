@@ -1,5 +1,4 @@
 # Transfer Learning of RAPiD Model on MW-R and WEBDTOF 
-This repository is the official PyTorch implementation of the following paper. Our code can reproduce the training and testing results reported in the paper.
 
 **RAPiD: Rotation-Aware People Detection in Overhead Fisheye Images** <br />
 
@@ -11,50 +10,64 @@ This repository is the official PyTorch implementation of the following paper. O
 - tqdm
 - tensorboard (optional, only for training)
 
+## Datasets
+The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF datasets for 4000 iterations.
+- MW-R [[Download Here](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/)]
+- WEPDTOF [[Download Here](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)]
 
-## Performance and pre-trained network weights
-Below is the cross-validatation performance on three datasets: [Mirror Worlds](http://www2.icat.vt.edu/mirrorworlds/challenge/index.html)-[rotated bbox version](http://vip.bu.edu/projects/vsns/cossy/datasets/mw-r), [HABBOF](http://vip.bu.edu/projects/vsns/cossy/datasets/habbof/), and [CEPDOF](http://vip.bu.edu/projects/vsns/cossy/datasets/cepdof/). The metric being used is Average Precision at IoU=0.5 (AP0.5). The links in the table refer to the pre-trained network weights that can reproduce each number.
-| Resolution | MW-R | HABBOF | CEPDOF |
-|:----------:|:----:|:------:|:------:|
-|     608    | [96.6](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_HBCP608_Apr14_6000.ckpt) |  [97.3](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWCP608_Apr14_5500.ckpt)  |  [82.4](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB608_Mar11_4500.ckpt)  |
-|    1024    | [96.7](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_HBCP1024_Apr14_3000.ckpt) |  [98.1](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWCP1024_Apr14_3000.ckpt)  |  [85.8](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt)  |
+<p align="center">
+<img src="https://vip.bu.edu/files/2021/07/wepdof_samples.png" width="500" height="500">
+</p>
 
-## A minimum guide for testing on a single image
-https://github.com/kzchua1998/Rotation-Aware-Overhead-Human-Detection-in-Fisheye-Images/result_video.mp4
+It should be noted that MW-R only provides [raw videos](https://www.youtube.com/playlist?list=PLKjRNrBNA-nzzv4KqqdeMHMtq26kue5ZR) and their corresponding annotations in COCO json format. Therefore, further processing is necessary to convert the videos into frames and name them appropriately.
+
+
+**Instructions**:
+- Convert the MW Train Set videos into frames. 
+
+- `MW-18Mar-2` video should contains 297 frames, 788 frames for `MW-18Mar-3` video, and 451 frames each for other videos. 
+
+- In total, there should be 297 + 788 + 17*451 = 8752 frames.
+
+- Rename the MW frames using the following file names: `Mar#_******.jpg`, where # is the video number as in the original MW dataset, and ****** is the frame number in that video but zero-padded to 6 digits. 
+
+For example, the first frame of the `MW-18Mar-3` video will be `Mar3_000001.jpg`, and the 10th frame of the `MW-18Mar-12` video will be `Mar12_000010.jpg`.
+
+## Demo
+
+https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
+
 0. Clone the repository
 1. Download the [pre-trained network weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt), which is trained on COCO, MW-R and HABBOF, and place it under the RAPiD/weights folder.
 2. Directly run `python example.py`. Alternatively, `demo.ipynb` gives an example using jupyter notebook.
 
-<p align="center">
-<img src="https://github.com/duanzhiihao/RAPiD/blob/master/images/readme/exhibition_rapid608_1024_0.3.jpg?raw=true" width="500" height="500">
-</p>
+## Evaluation and Visualization
+Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric.
 
-## Evaluation
-Here is a minimum example of evaluting RAPiD on a single image in terms of the AP metric.
-
-0. Clone repository. Download the [pre-trained network weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/pL1_MWHB1024_Mar11_4000.ckpt), which is trained on COCO, MW-R and HABBOF, and place it under the RAPiD/weights folder.
-1. `python evaluate.py --metric AP`
+0. Modify line 41-42 to evaluate your trained weights. Default weight used `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt` is trained on COCO, CEPDOF, HABBOF, MW-R and WEPDTOF.
+```
+rapid = Detector(model_name='rapid',
+                     weights_path='./weights/rapid_pL1_dark53_COCO608_Jun18_4000.ckpt')
+```
+1. Run `python evaluate.py --metric AP`
 
 The same evaluation process holds for published fisheye datasets like CEPDOF. For example, `python evaluate.py --imgs_path path/to/cepdof/Lunch1 --gt_path path/to/cepdof/annotations/Lunch1.json --metric AP`
 
-## Training on COCO
-0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth), which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 author. The only diffence is that I converted it to the PyTorch format.
-1. Place the weights file under the RAPiD/weights folder;
+## Training on COCO json data format
+0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth) by RAPiD authors which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 authors but in PyTorch format.
+1. Place the weights file under the /weights folder;
 2. Download the COCO dataset and put it at `path/to/COCO`
-3. Modify line 59-61 in train.py to the following code snippet. Note that there must be a `'COCO'` in the `path/to/COCO`. Modify the validation set path too if you like.
+3. Modify line 57-60 in train.py according to the following code snippet.
 ```
 if args.dataset == 'COCO':
-    train_img_dir = 'path/to/COCO/train2017'
-    assert 'COCO' in train_img_dir # issue #11
-    train_json = 'path/to/COCO/annotations/instances_train2017.json'
+    train_img_dir = 'path/to/img/train'
+    train_json = 'path/to/json/train.json'
+    val_img_dir = 'path/to/img/val'
+    val_json = 'path/to/json/val.json'
 ```
-
-4. `python train.py --model rapid_pL1 --dataset COCO --batch_size 8` should work. Try to set the largest possible batch size that can fit in the GPU memory.
-
-Pre-trained checkpoint on COCO after 20k training iterations: [download](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/rapid_pL1_dark53_COCO608_Jan07_20000.ckpt). Note that this is different from the one we reported in the paper. We encourage you to further fine-tune it, either on COCO (ideally >100k iterations) or on fisheye images, to get better performance.
+4. Run `python train.py --model rapid_pL1 --dataset COCO --batch_size 2`. Set the largest possible batch size that can fit in the GPU memory.
 
 ## Citation
-RAPiD source code is available for non-commercial use.
 ```
 Z. Duan, M.O. Tezcan, H. Nakamura, P. Ishwar and J. Konrad, 
 “RAPiD: Rotation-Aware People Detection in Overhead Fisheye Images”, 
