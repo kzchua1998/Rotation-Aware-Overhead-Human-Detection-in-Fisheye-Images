@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-
 2. Directly run `python example.py`. Alternatively, `demo.ipynb` gives an example using jupyter notebook.
 
 ## Evaluation and Visualization
-Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric.
+Here is an example of evaluating trained RAPiD on a single image in terms of the AP metric. Skip to step 2 for visualization only.
 
 0. Modify line 41-42 to evaluate your trained weights. Default weight used is `rapid_pL1_dark53_COCO608_Jun18_4000.ckpt`.
 ```
@@ -49,8 +49,7 @@ rapid = Detector(model_name='rapid',
                      weights_path='./weights/rapid_pL1_dark53_COCO608_Jun18_4000.ckpt')
 ```
 1. Run `python evaluate.py --metric AP`
-
-The visualization process can be achieved by running `python demo.py` or using `demo.ipynb` provided.
+2. Visualize the result by running `python demo.py` or using `demo.ipynb` provided.
 
 ## Training on COCO json data format
 0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth) by RAPiD authors which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 authors but in PyTorch format.
