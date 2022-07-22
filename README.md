@@ -13,6 +13,7 @@
 ## Datasets
 The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF datasets for 4000 iterations.
 | **Dataset** | MW-R | WEPDTOF |
+|-------------|------|---------|
 | **Download** | [Here](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/) |  [Here](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)  |
 | **No of Frames** | 8752 | 10544 |
 
