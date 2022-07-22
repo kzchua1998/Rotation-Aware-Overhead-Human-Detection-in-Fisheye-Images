@@ -32,7 +32,7 @@ Here is a minimum example of evaluting RAPiD on a single image in terms of the A
 
 The same evaluation process holds for published fisheye datasets like CEPDOF. For example, `python evaluate.py --imgs_path path/to/cepdof/Lunch1 --gt_path path/to/cepdof/annotations/Lunch1.json --metric AP`
 
-## Training on COCO json format
+## Training on COCO json data format
 0. Download [the Darknet-53 weights](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/dark53_imgnet.pth) by RAPiD authors which is pre-trained on ImageNet. This is identical to the one provided by the official YOLOv3 authors but in PyTorch format.
 1. Place the weights file under the /weights folder;
 2. Download the COCO dataset and put it at `path/to/COCO`
@@ -44,9 +44,7 @@ if args.dataset == 'COCO':
     val_img_dir = 'path/to/img/val'
     val_json = 'path/to/json/val.json'
 ```
-4. `python train.py --model rapid_pL1 --dataset COCO --batch_size 8` should work. Try to set the largest possible batch size that can fit in the GPU memory.
-
-Pre-trained checkpoint on COCO after 20k training iterations: [download](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/rapid_pL1_dark53_COCO608_Jan07_20000.ckpt). Note that this is different from the one we reported in the paper. We encourage you to further fine-tune it, either on COCO (ideally >100k iterations) or on fisheye images, to get better performance.
+4. `python train.py --model rapid_pL1 --dataset COCO --batch_size 2` should work. Try to set the largest possible batch size that can fit in the GPU memory.
 
 ## Citation
 ```
