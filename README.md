@@ -17,7 +17,8 @@ The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF 
 
 It should be noted that MW-R only provides [raw videos](https://www.youtube.com/playlist?list=PLKjRNrBNA-nzzv4KqqdeMHMtq26kue5ZR) and their corresponding annotations in COCO json format. Therefore, further processing is necessary to convert the videos into frames and name them appropriately.
 
-**Instructions**
+
+**Instructions**:
 - Convert the MW Train Set videos into frames. 
 
 - “MW-18Mar-2” video should contains 297 frames, 788 frames for “MW-18Mar-3” video, and 451 frames each for other videos. 
