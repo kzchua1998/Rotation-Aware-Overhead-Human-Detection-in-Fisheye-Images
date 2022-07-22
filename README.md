@@ -34,7 +34,7 @@ It should be noted that MW-R only provides [raw videos](https://www.youtube.com/
 For example, the first frame of the `MW-18Mar-3` video will be `Mar3_000001.jpg`, and the 10th frame of the `MW-18Mar-12` video will be `Mar12_000010.jpg`.
 
 ## Demo
-The video was taken 
+The video was taken approximately 17 feet from the ground near Kolej 10, Universiti Teknologi Malaysia.
 
 https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
 
