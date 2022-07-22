@@ -12,11 +12,11 @@
 
 ## Datasets
 The pre-trained model from RAPiD authors is further trained on MW-R and WEPDTOF datasets for 4000 iterations.
-| Dataset | MW-R | WEPDTOF |
+| **Dataset** | MW-R | WEPDTOF |
 |:----------:|:----:|:------:|
-| Download Link | [Annotation only](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/) |  [Image and Annotation](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)  |
+| **Download Link** | [Annotation only](https://vip.bu.edu/projects/vsns/cossy/datasets/mw-r/) |  [Image and Annotation](https://vip.bu.edu/projects/vsns/cossy/datasets/wepdtof/)  |
 
-It should be noted that 
+It should be noted that MW-R only provides raw videos and their corresponding annotations in COCO json format. Thus, further processing is necessary.
 
 ## Demo
 https://user-images.githubusercontent.com/64066100/180419839-38764a0a-ff4e-4acc-83ec-60359f2c1bfe.mp4
