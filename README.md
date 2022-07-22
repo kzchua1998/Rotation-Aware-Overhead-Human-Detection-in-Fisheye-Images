@@ -54,7 +54,6 @@ if args.dataset == 'COCO':
 Pre-trained checkpoint on COCO after 20k training iterations: [download](https://github.com/duanzhiihao/RAPiD/releases/download/v0.1/rapid_pL1_dark53_COCO608_Jan07_20000.ckpt). Note that this is different from the one we reported in the paper. We encourage you to further fine-tune it, either on COCO (ideally >100k iterations) or on fisheye images, to get better performance.
 
 ## Citation
-RAPiD source code is available for non-commercial use.
 ```
 Z. Duan, M.O. Tezcan, H. Nakamura, P. Ishwar and J. Konrad, 
 “RAPiD: Rotation-Aware People Detection in Overhead Fisheye Images”, 
